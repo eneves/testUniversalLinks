@@ -196,6 +196,10 @@ function injectOptions(manifestData, pluginPreferences) {
         });
     });
 
+
+    //EN : Hard Coded
+    ulIntentFilters.push(createIntentFilter("androidapplinks.000webhostapp.com", "https", "/"));
+
     // add Universal Links intent-filters to the launch activity
     launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
 
