@@ -118,7 +118,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 		Intent intent = getIntent();
 		String action = intent.getAction();
 		Uri data = intent.getData();
-		callbackContext.success(data);
+		callbackContext.success(data.toString());
     }
 
     /**
