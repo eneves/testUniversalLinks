@@ -40,6 +40,8 @@ public class UniversalLinksPlugin extends CordovaPlugin {
     // stored message, that is captured on application launch
     private JSMessage storedMessage;
 
+	private CordovaInterface privateCordova;
+
     // region Public API
 
     @Override
@@ -53,11 +55,23 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         }
 
         handleIntent(cordova.getActivity().getIntent());
+		
+		privateCordova = cordova;
     }
 
     @Override
-    public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {
-        Log.d("UniversalLinks", "init execute",null);
+    public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {      
+		
+		
+		
+		
+		Intent currIntent = cordova.getActivity().getIntent();
+		String action = currIntent.getAction();
+        Uri launchUri = currIntent.getData();
+		
+		callbackContext.success(Uri.toString());
+		
+		
 		boolean isHandled = true;
         if (JSAction.SUBSCRIBE.equals(action)) {
             subscribeForEvent(args, callbackContext);
