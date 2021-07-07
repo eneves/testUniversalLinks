@@ -23,9 +23,6 @@ function writePreferences(cordovaContext, pluginPreferences) {
     if (!fs.existsSync(pathToManifest)) {
         pathToManifest = path.join(cordovaContext.opts.projectRoot, 'platforms', 'android', 'app', 'src', 'main', 'AndroidManifest.xml');
     }
-    if (!fs.existsSync(pathToManifest)) {
-        pathToManifest = "/AndroidManifest.xml";
-    }
     var manifestSource = xmlHelper.readXmlAsJson(pathToManifest);
     var cleanManifest;
     var updatedManifest;
@@ -198,10 +195,6 @@ function injectOptions(manifestData, pluginPreferences) {
             ulIntentFilters.push(createIntentFilter(host.name, host.scheme, hostPath));
         });
     });
-
-
-    //EN : Hard Coded
-    ulIntentFilters.push(createIntentFilter("androidapplinks.000webhostapp.com", "https", "/"));
 
     // add Universal Links intent-filters to the launch activity
     launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
