@@ -159,6 +159,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         final PluginResult result = new PluginResult(PluginResult.Status.OK, message);
         result.setKeepCallback(true);
         callback.sendPluginResult(result);
+		callback.success("success");
     }
 
     // endregion
