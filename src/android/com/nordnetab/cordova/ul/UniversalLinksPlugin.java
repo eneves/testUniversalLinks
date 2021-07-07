@@ -114,12 +114,12 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         subscribers.remove(eventName);
     }
 
-	private void getDataFromEvent(final CordovaArgs arguments, final CallbackContext callbackContext) {
+	/*private void getDataFromEvent(final CordovaArgs arguments, final CallbackContext callbackContext) {
 		Intent intent = getIntent();
 		String action = intent.getAction();
 		Uri data = intent.getData();
 		callbackContext.success(data.toString());
-    }
+    }*/
 
     /**
      * Get event name from the cordova arguments.

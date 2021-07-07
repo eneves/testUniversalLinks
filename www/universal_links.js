@@ -10,8 +10,7 @@ var exec = require('cordova/exec'),
 // Plugin methods on the native side that can be called from JavaScript
 pluginNativeMethod = {
   SUBSCRIBE: 'jsSubscribeForEvent',
-    UNSUBSCRIBE: 'jsUnsubscribeFromEvent',
-  ENGETDATA: 'jsGetData'
+    UNSUBSCRIBE: 'jsUnsubscribeFromEvent'
 };
 
 var universalLinks = {
@@ -51,11 +50,7 @@ var universalLinks = {
     }
 
     exec(null, null, PLUGIN_NAME, pluginNativeMethod.UNSUBSCRIBE, [eventName]);
-    },
-  getData: function () {
-
-        exec(null, null, PLUGIN_NAME, pluginNativeMethod.ENGETDATA, []);
-  }
+    }
 };
 
 module.exports = universalLinks;
