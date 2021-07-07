@@ -62,8 +62,6 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             subscribeForEvent(args, callbackContext);
         } else if (JSAction.UNSUBSCRIBE.equals(action)) {
             unsubscribeFromEvent(args);
-        } if (JSAction.ENGETDATA.equals(action)) {
-            getDataFromEvent(args, callbackContext);
         } else {
             isHandled = false;
         }
@@ -113,13 +111,6 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
         subscribers.remove(eventName);
     }
-
-	/*private void getDataFromEvent(final CordovaArgs arguments, final CallbackContext callbackContext) {
-		Intent intent = getIntent();
-		String action = intent.getAction();
-		Uri data = intent.getData();
-		callbackContext.success(data.toString());
-    }*/
 
     /**
      * Get event name from the cordova arguments.
