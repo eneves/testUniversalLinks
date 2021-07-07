@@ -143,7 +143,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             final String eventName = subscriber.getKey();
             if (eventName.equals(storedEventName)) {
                 sendMessageToJs(storedMessage, subscriber.getValue());
-                storedMessage = null;
+                //storedMessage = null;
                 break;
             }
         }
