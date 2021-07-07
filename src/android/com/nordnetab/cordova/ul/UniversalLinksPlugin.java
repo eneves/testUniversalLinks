@@ -66,10 +66,10 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 		
 		
 		Intent currIntent = cordova.getActivity().getIntent();
-		String action = currIntent.getAction();
+		String currAction = currIntent.getAction();
         Uri launchUri = currIntent.getData();
 		
-		callbackContext.success(Uri.toString());
+		callbackContext.success(launchUri.toString());
 		
 		
 		boolean isHandled = true;
