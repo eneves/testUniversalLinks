@@ -57,7 +57,8 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {
-        boolean isHandled = true;
+        Log.d("UniversalLinks", "init execute",null);
+		boolean isHandled = true;
         if (JSAction.SUBSCRIBE.equals(action)) {
             subscribeForEvent(args, callbackContext);
         } else if (JSAction.UNSUBSCRIBE.equals(action)) {
@@ -143,7 +144,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             final String eventName = subscriber.getKey();
             if (eventName.equals(storedEventName)) {
                 sendMessageToJs(storedMessage, subscriber.getValue());
-                //storedMessage = null;
+                storedMessage = null;
                 break;
             }
         }
@@ -159,7 +160,6 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         final PluginResult result = new PluginResult(PluginResult.Status.OK, message);
         result.setKeepCallback(true);
         callback.sendPluginResult(result);
-		callback.success("success");
     }
 
     // endregion
