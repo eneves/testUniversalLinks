@@ -33,9 +33,12 @@ var universalLinks = {
     }
 
     var innerCallback = function(msg) {
-      callback(msg.data);
+        alert("inner callback");
+        callback(msg.data);
+        alert(msg);
     };
 
+      alert("subscribe function");
     exec(innerCallback, null, PLUGIN_NAME, pluginNativeMethod.SUBSCRIBE, [eventName]);
   },
 
