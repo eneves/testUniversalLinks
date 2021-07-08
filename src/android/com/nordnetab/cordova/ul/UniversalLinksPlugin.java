@@ -156,7 +156,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         final Set<Map.Entry<String, CallbackContext>> subscribersSet = subscribers.entrySet();
         for (Map.Entry<String, CallbackContext> subscriber : subscribersSet) {
             final String eventName = subscriber.getKey();
-            if (eventName.equals(storedEventName)) {
+            if (eventName.equals(storedEventName)) {				
                 sendMessageToJs(storedMessage, subscriber.getValue());
                 storedMessage = null;
                 break;
@@ -171,6 +171,11 @@ public class UniversalLinksPlugin extends CordovaPlugin {
      * @param callback to what callback we are sending the message
      */
     private void sendMessageToJs(JSMessage message, CallbackContext callback) {
+		Intent currIntent = cordova.getActivity().getIntent();
+		String currAction = currIntent.getAction();
+		Uri launchUri = currIntent.getData();
+		callback.success(launchUri.toString());
+
         final PluginResult result = new PluginResult(PluginResult.Status.OK, message);
         result.setKeepCallback(true);
         callback.sendPluginResult(result);
